@@ -1,0 +1,610 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
+
+/* FONT STYLE AWAL */
+* {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+
+}
+
+/* FONT STYLE AKHIR */
+/* BODY AWAL */
+body {
+    background-color: #252525;
+    height: 1000px;
+
+}
+
+/* BODY AKHIR */
+
+/*  MULAI CONTAINER NAV  */
+.container_bar {
+    background-color: #292929;
+    position: relative;
+    width: 100%;
+    height: 70px;
+}
+
+.container_bar h1 {
+    color: aquamarine;
+    position: relative;
+    top: 19px;
+    left: 35%;
+    font-size: 30px;
+    height: 50%;
+    width: 50px;
+}
+
+/* STYLE MULAI SIDE BAR */
+.btn {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    height: 45px;
+    width: 45px;
+    text-align: center;
+    background: #1b1b1b;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: left 0.4s ease;
+}
+
+.btn.click {
+    left: 230px;
+}
+
+.btn span {
+    color: aquamarine;
+    font-size: 28px;
+    line-height: 45px;
+}
+
+.btn.click span:before {
+    content: '\f00d';
+}
+
+.sidebar {
+    position: fixed;
+    top: -10px;
+    width: 220px;
+    height: 100%;
+    left: -250px;
+    background: #1b1b1b;
+    border-radius: 10px;
+    transition: left 0.4s ease;
+}
+
+.sidebar.show {
+    left: 0px;
+}
+
+.sidebar .text {
+    color: aquamarine;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 65px;
+    text-align: center;
+    background: #1e1e1e;
+    letter-spacing: 1px;
+}
+
+nav ul {
+    background-color: #1b1b1b;
+    height: 100%;
+    width: 100%;
+    list-style: none;
+
+}
+
+nav ul li {
+    line-height: 60px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+nav ul li:last-child {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+nav ul li a {
+    position: relative;
+    color: aquamarine;
+    text-decoration: none;
+    font-size: 18px;
+    padding-left: 40px;
+    font-weight: 500;
+    display: block;
+    width: 100%;
+    border-left: 3px solid transparent;
+}
+
+nav ul li.active a {
+    color: aquamarine;
+    background: #1e1e1e;
+    border-left-color: aquamarine;
+}
+
+nav ul ul {
+    position: static;
+    display: none;
+}
+
+nav ul .feat-show.show {
+    display: block;
+}
+
+nav ul .serv-show.show {
+    display: block;
+}
+
+nav ul ul li {
+    line-height: 42px;
+    border-bottom: none;
+}
+
+nav ul ul li a {
+    font-size: 20px;
+    color: #e6e6e6;
+    padding-left: 80px;
+}
+
+nav ul li.active ul li a {
+    color: #e6e6e6;
+    background: #1e1e1e;
+    border-left-color: transparent;
+}
+
+nav ul ul li a:hover {
+    color: aquamarine !important;
+    background: #1e1e1e !important;
+}
+
+nav ul li a span {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    font-size: 22px;
+    transition: transform 0.4s;
+}
+
+/* STYLE AKHIR SIDE BAR */
+/* MULAI search bar */
+.container_search {
+    height: 50vh;
+    margin-inline: 1.5rem;
+    display: grid;
+    position: absolute;
+    right: 10px;
+    top: 13px;
+}
+
+form#search-bar.search.show-search {
+    color: aquamarine;
+}
+
+.search {
+    position: relative;
+    width: 43px;
+    height: 45px;
+    background-color: #1e1e1e;
+    box-shadow: 0 4px 24px hsla(222, 68%, 12%, .1);
+    border-radius: 10px;
+    margin-right: -20px;
+    padding: 10px;
+    color: aquamarine;
+    overflow: hidden;
+    transition: width .5s cubic-bezier(.9, 0, .3, .9);
+}
+
+.search__input {
+    background-color: #1e1e1e;
+    border: none;
+    outline: none;
+    width: calc(100% - 64px);
+    height: 100%;
+    border-radius: 10px;
+    padding-left: 14px;
+    font-size: 20px;
+    font-weight: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1.5s;
+}
+
+input.search__input {
+    color: aquamarine;
+}
+
+.search__input:-webkit-autoill {
+    box-shadow: 0 0 0 100px var(--white-color) inset;
+}
+
+.search__button {
+    width: 30px;
+    height: 30px;
+    background-color: #1b1b1b;
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 10px;
+    margin: auto;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    transition: transformm.6s cubic-bezier(.9, 0, .3, .9);
+}
+
+.search__icon,
+.search__close {
+    color: aquamarine;
+    font-size: 20px;
+    position: absolute;
+    transition: opacity .5s cubic-bezier(.9, 0, .3, .9);
+}
+
+.search__close {
+    opacity: 0;
+}
+
+.show-search {
+    width: 200px;
+}
+
+.show-search .search__input {
+    opacity: 1;
+    pointer-events: initial;
+
+}
+
+.show-search .search__button {
+    transform: rotate(90deg);
+}
+
+.show-search .search__icon {
+    opacity: 0;
+}
+
+.show-search .search__close {
+    opacity: 1;
+}
+
+/* AHKIR SEARCH BAR */
+/* mulai menu1 */
+.container_menu{
+    height: 80px;
+    display: flex;
+    margin-top: -10px;
+
+}
+
+.menu1 {
+    
+    background-color: #1b1b1b;
+    margin-left: 30px;
+    border-radius: 10px
+    
+}
+
+.genre {
+    
+    background-color: #1b1b1b;
+    margin-left: 30px;
+    border-radius: 10px;
+    margin-top: 49px;
+    box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
+    
+}
+
+
+select{
+    border-radius: 8px;
+    color: cyan;
+    background-color: #343434;
+    width: 130px;
+}
+/* AKHIR BAR  */
+/* MULAI HALAMAN KOMIC */
+.halaman_buku {
+    background-color: #343434;
+    overflow-x: auto;
+    max-width: 2000px;
+    height: 360px;
+    margin-left: 30px;
+    margin-top: 20px;
+    color: #e6e6e6;
+
+}
+
+a {
+    color: aquamarine;
+}
+
+h2 {
+    color: aquamarine;
+    padding-left: 30px;
+    padding-top: 25px;
+    text-align: left;
+}
+
+/* bar 1 */
+.bar1 {
+    height: 100%;
+    min-width: 110px;
+    display: flex;
+}
+
+/* buku */
+.bar1 img {
+    padding-left: 20px;
+    padding-top: 20px;
+    width: 170px;
+
+}
+
+h3 {
+    padding-left: 20px;
+    padding-top: 5px;
+    font-size: 20px;
+
+}
+
+h4 {
+    font-size: 13px;
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+.rating {
+    color: yellow;
+    padding-left: 20px;
+    padding-top: 5px;
+    text-decoration: none;
+    font-size: 13px
+}
+
+.bar1 a {
+    text-decoration: none;
+}
+
+/* buku2 */
+.buku2{
+    margin-left: 5px;
+}
+.buku2 img {
+    width: 186px;
+}
+
+.buku2 h4 {
+    padding-top: 2px;
+    width: 177px;
+    font-size: 12px;
+}
+
+.rating2 {
+    color: yellow;
+    margin-left: 20px;
+    padding-top: 5px;
+    font-size: 13px
+}
+
+/* buku3 */
+.buku3{
+    margin-left: 5px;
+}
+.buku3 img {
+    width: 170px;
+    padding-left: 5px;
+}
+
+.buku3 h4 {
+    padding-top: 1px;
+    width: 200px;
+    margin-left: 5px;
+    font-size: 14px;
+}
+
+.rating3 {
+    color: yellow;
+    margin-left: 3px;
+    align-content: 10px;
+    padding-top: 15px;
+    font-size: 13px
+}
+
+/* buku4 */
+.buku4{
+    margin-left: -5px;
+}
+.buku4 img {
+    width: 176px;
+    margin-left: -30px;
+}
+
+.buku4 h4 {
+    padding-top: 2px;
+    font-size: 13px;
+    width: 190px;
+    margin-left: -13px;
+}
+
+.buku4 h5 {
+    padding-top: 2px;
+    font-size: 14px;
+    width: 190px;
+    margin-left: -13px;
+}
+
+.rating4 {
+    color: yellow;
+    margin-left: -13px;
+    align-content: 10px;
+    padding-top: 18px;
+    font-size: 13px
+}
+
+/* buku5 */
+.buku5 img {
+    width: 168px;
+    margin-left: -30px;
+}
+
+.buku5 h4 {
+    width: 200px;
+    font-size: 15px;
+    margin-left: -10px;
+}
+
+.rating5 {
+    color: yellow;
+    margin-left: -10px;
+    align-content: 10px;
+    padding-top: 19px;
+    font-size: 13px
+}
+
+/* buku6 */
+.buku6 img {
+    width: 168px;
+    margin-left: -51px;
+}
+
+.buku6 h4 {
+    width: 200px;
+    margin-left: -30px;
+    font-size: 15px;
+}
+
+.rating6 {
+    color: yellow;
+    margin-left: -30px;
+    align-content: 10px;
+    padding-top: 20px;
+    font-size: 13px
+}
+
+/* buku7 */
+.buku7 img {
+    width: 169px;
+    margin-left: -50px;
+}
+
+.buku7 h4 {
+    width: 200px;
+    margin-left: -30px;
+    font-size: 15px;
+}
+
+.rating7 {
+    color: yellow;
+    margin-left: -30px;
+    align-content: 10px;
+    padding-top: 20px;
+    font-size: 13px
+}
+
+/* buku8 */
+.buku8 img {
+    width: 184px;
+    margin-left: -50px;
+}
+
+.buku8 h4 {
+    width: 200px;
+    margin-left: -30px;
+    font-size: 15px;
+}
+
+.rating8 {
+    color: yellow;
+    margin-left: -30px;
+    align-content: 10px;
+    padding-top: 21px;
+    font-size: 13px
+}
+
+/* buku9 */
+.buku9 img {
+    width: 165px;
+    margin-left: -34px;
+}
+
+.buku9 h4 {
+    width: 200px;
+    margin-left: -10px;
+    font-size: 15px;
+}
+
+.rating9 {
+    color: yellow;
+    margin-left: -10px;
+    align-content: 10px;
+    padding-top: 20px;
+    font-size: 13px
+}
+
+/* buku10 */
+.buku10 img {
+    width: 184px;
+    margin-left: -58px;
+}
+
+.buku10 h4 {
+    width: 200px;
+    margin-left: -45px;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.rating10 {
+    color: yellow;
+    text-decoration: none;
+    margin-left: -43px;
+    align-content: 10px;
+    padding-top: 7px;
+    font-size: 13px
+}
+/* buku11 */
+.buku11 img {
+    width: 169px;
+    margin-left: -24px;
+}
+
+.buku11 h4 {
+    width: 160px;
+    margin-left: -4px;
+    font-size: 14px;
+}
+
+.rating11 {
+    color: yellow;
+    margin-left: -10px;
+    align-content: 10px;
+    padding-top: 7px;
+    font-size: 13px
+}
+/* buku 12 */
+.buku12{
+    margin-left: 20px;
+}
+.buku12 img {
+    width: 172px;
+    margin-left: -24px;
+}
+
+.buku12 h4 {
+    width: 160px;
+    margin-left: -4px;
+    font-size: 14px;
+}
+
+.rating12 {
+    color: yellow;
+    margin-left: 0px;
+    align-content: 10px;
+    padding-top: 7px;
+    font-size: 13px
+}

@@ -1,0 +1,535 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
+/* FONT STYLE AWAL */
+*{
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    box-sizing: border-box;
+    font-family: 'roboto Mono';
+
+}
+/* FONT STYLE AKHIR */
+/* BODY AWAL */
+body{
+    background-color:#121212;
+    height: 100px;
+    
+}
+
+/* BODY AKHIR */
+
+/*  MULAI CONTAINER NAV  */
+.container_bar {
+    background-color: #292929;
+    position: relative;
+    width: 100%;
+    height: 70px;
+}
+
+.container_bar h1{
+    color: cyan;
+    position: relative;
+    top: 13px;
+    left: 30%;
+    font-size: 40px;
+    height: 50%;
+    width: 50px;
+}
+/* STYLE MULAI SIDE BAR */
+.btn{
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    height: 45px;
+    width: 45px;
+    text-align: center;
+    background: #1b1b1b;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: left 0.4s ease;
+}
+
+.btn.click{
+    left: 260px;
+}
+
+.btn span{
+    color: cyan;
+    font-size: 28px;
+    line-height: 45px;
+}
+
+.btn.click span:before{
+    content: '\f00d';
+}
+
+.sidebar {
+    position: fixed; 
+    top: -10px;
+    width: 250px;
+    height: 100%;
+    left: -250px;
+    background: #1b1b1b;
+    border-radius: 10px;
+    transition: left 0.4s ease;
+}
+.sidebar.show{
+    left: 0px;
+}
+
+.sidebar .text{
+    color: cyan;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 65px;
+    text-align: center;
+    background: #1e1e1e;
+    letter-spacing: 1px;
+}
+
+nav ul{
+    background-color: #1b1b1b;
+    height: 100%;
+    width: 100%;
+    list-style: none;
+}
+
+nav ul li{
+    line-height: 60px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+nav ul li:last-child{
+    border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+nav ul li a{
+    position: relative;
+    color: cyan;
+    text-decoration: none;
+    font-size: 18px;
+    padding-left: 40px;
+    font-weight: 500;
+    display: block;
+    width: 100%;
+    border-left:3px solid transparent ;
+}
+
+nav ul li.active a{
+    color: cyan;
+    background: #1e1e1e;
+    border-left-color:cyan;
+}
+
+nav ul ul {
+    position: static;
+    display: none;
+}
+
+nav ul .feat-show.show{
+    display: block;
+}
+
+nav ul .serv-show.show{
+    display: block;
+}
+
+nav ul ul li{
+    line-height: 42px;
+    border-bottom: none;
+}
+
+nav ul ul li a{
+    font-size: 20px;
+    color: cyan;
+    padding-left: 80px;
+}
+
+nav ul li.active ul li a{
+    color: cyan;
+    background: #1e1e1e;
+    border-left-color: transparent;
+}
+
+nav ul ul li a:hover{
+    color: cyan  !important;
+    background: #1e1e1e!important;
+}
+
+nav ul li a span {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    font-size: 22px;
+    transition: transform 0.4s;
+}
+
+/* STYLE AKHIR SIDE BAR */
+/* MULAI search bar */
+.container_search{
+    height: 50vh;
+    margin-inline: 1.5rem;
+    display: grid;
+    position: absolute;
+    right: 10px;
+    top: 13px;
+}
+
+form#search-bar.search.show-search{
+    color: cyan;
+}
+
+.search{
+    position: relative; 
+    width: 43px;
+    height: 35px;
+    background-color: #1e1e1e;
+    box-shadow: 0 4px 24px hsla(222, 68%, 12%, .1);
+    border-radius: 10px;
+    padding: 10px;
+    color: cyan;
+    overflow: hidden; 
+     transition: width .5s cubic-bezier(.9, 0, .3, .9);
+}
+
+.search__input{
+    background-color: #1e1e1e;
+    border: none;
+    outline: none;
+    width: calc(100% - 64px);
+    height: 100%;
+    border-radius: 10px;
+    padding-left: 14px;
+    font-size: 20px;
+    font-weight: 20px ;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1.5s;
+}
+
+input.search__input{
+    color: cyan;
+}
+
+.search__input:-webkit-autoill{
+    box-shadow: 0 0 0 100px var(--white-color) inset;
+}
+
+.search__button{
+    width: 30px;
+    height: 30px;
+    background-color: #1b1b1b;
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 10px;
+    margin: auto;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    transition: transformm.6s cubic-bezier(.9, 0, .3, .9);
+}
+
+.search__icon,
+.search__close{
+    color:cyan;
+    font-size: 20px;
+    position: absolute;
+    transition: opacity .5s cubic-bezier(.9, 0, .3, .9);
+}
+
+.search__close{
+    opacity: 0;
+}
+
+.show-search{
+    width: 300px;
+}
+
+.show-search .search__input{
+    opacity: 1;
+    pointer-events: initial;
+}
+
+.show-search .search__button{
+    transform: rotate(90deg);
+}
+
+.show-search .search__icon{
+    opacity: 0;
+}
+
+.show-search .search__close{
+    opacity: 1;
+}
+/* AHKIR SEARCH BAR */
+/* sinopsis */
+.latar{
+    height: 120vh;
+    background-image: url('img/final.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: static;
+}
+
+.sinopsis{
+    display: flex;
+}
+/* layout */
+.layout{
+    width: 210px;
+    height: 490px;
+    margin-left: 20px;
+    margin-top: 50px;
+    background-color:#292929 ;
+    border-radius: 5px;
+
+}
+
+.layout img{
+    width: 80%;
+    border-radius: 5px;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+h2{
+    color: cyan;
+    font-size: 19px;
+    margin-left: 17px;
+}
+
+h4{
+    color: cyan;
+    margin-left:20px ;
+    font-size: 12px;
+}
+
+.genre{
+    display: flex;
+    width: 100px;
+    height: 500px;
+}
+
+.action{
+   width:65px ;
+   margin-top: 5px;
+   background-color: #303030; 
+   margin-left: 10px;
+   border-radius: 8px;
+   
+   
+}
+
+.action a{
+    color: cyan;
+    margin-left: 5px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.Adventure{
+    width:85px ;
+    background-color: #303030; 
+    margin-top: -21px;
+    margin-left: 80px;
+    border-radius: 8px;
+    
+    
+ }
+
+ .Adventure a{
+     color: cyan;
+     margin-left: 5px;
+     text-decoration: none;
+     font-size: 13px;
+ }
+
+ .Award_Winning{
+    width:115px ;
+    background-color: #303030; 
+    height: 23px;
+    margin-top: 6px;
+    margin-left: 11px;
+    border-radius: 10px;
+ }
+
+.Award_Winning a{
+     color: cyan;
+     margin-left: 5px;
+     text-decoration: none;
+     font-size: 13px;
+ }
+
+ .fantasi{
+    width:67px ;
+    background-color: #303030; 
+    margin-top: -22px;
+    margin-left: 130px;
+    border-radius: 10px;
+    
+    
+ }
+
+.fantasi a{
+     color: cyan;
+     margin-left: 5px;
+     text-decoration: none;
+     font-size: 13px;
+ }
+
+.rating{
+    color: yellow;
+    margin-left: 20px;
+    align-content: 10px;
+    padding-top: 3px;
+    font-size: 12px;
+}
+/* akhir layout1 */
+/* data1 */
+.data{
+    width: 550px;
+    height: 490px;
+    margin-top: 50px;
+    border-radius: 10px;
+    margin-left: 15px;
+    background-color: #303030;
+}
+
+.data h3{
+    margin-top: 10px;
+    margin-left: 20px;
+    color: cyan;
+}
+
+p{
+    color: cyan;
+    margin-left: 10px;
+    font-size: 12px;
+    width: 540px;
+}
+
+.p1{
+    margin-top: 5px;
+    margin-left: 50px;
+    font-size: 12px;
+}
+
+.p2{
+    margin-top: 10px;
+    font-size: 12px;
+}
+/* data1 */
+/* data2 */
+
+.data2{
+    width: 360px;
+    height: 490px;
+    margin-top: 50px;
+    margin-left: 15px;
+    border-radius: 8px;
+    background-color: #303030;
+    color: cyan;
+
+}
+
+.data2 h3{
+    margin-top: 10px;
+    margin-left: 20px;
+    color: cyan;
+}
+
+.data2 h4{
+    margin-top: 20px;
+    margin-left: 20px;
+    font-size: 17px;
+}
+
+hr{
+width: 300px;
+margin-left: 20px;
+margin-top: 15px;
+border-color: cyan;
+}
+/* data2 */
+
+/* episode */
+.episode_ltr{
+    width: 500px;
+    height: 570px;
+    border-radius: 8px;
+    margin-top: -100px;
+    background-color: #303030;
+    margin-left: 20px;
+    display: grid ;
+}
+
+.episode_ltr i{
+    color: cyan;
+    font-size: 25px;
+    padding-top: 8px;
+}
+
+.episode_ltr h4{
+    padding-top: 10px;
+    font-size: 17px; 
+}
+
+.dc{
+    background-color: #292929;
+    width: 200px;
+    overflow-y: auto;
+    border-radius: 8px;
+    max-height: 500px;
+    margin-left: 30px;
+    margin-top: 20px;
+}
+.dc a{
+    text-decoration: none;
+    color: cyan;
+    padding-left: 26px;
+    font-size: 17px;
+    padding-top: 20px;
+}
+
+.awal{
+    background-color: #292929;
+    margin-top: -450px;
+    height: 70px;
+    width: 200px;
+    border-radius: 8px;
+    padding-left: 20px;
+    color: cyan;
+    padding-top: 5px;
+    margin-left: 260PX;
+}
+.awal a{
+    color: cyan;
+    font-size: 15px;
+    text-decoration: none;
+}
+a i{
+    font-size: 20px;
+}
+
+.akhir{
+    background-color: #292929;
+    margin-top: -365px;
+    height: 65px;
+    width: 200px;
+    border-radius: 8px;
+    padding-left: 20px;
+    color: cyan;
+    padding-top: 5px;
+    margin-left: 260PX;
+}
+.akhir a{
+    color: cyan;
+    font-size: 15px;
+    text-decoration: none;
+}
+a i{
+    font-size: 20px;
+}
